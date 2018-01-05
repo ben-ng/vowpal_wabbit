@@ -18,7 +18,13 @@ from shutil import copy, copytree, rmtree
 
 system = platform.system()
 here = path.abspath(path.dirname(__file__))
-pylibvw = Extension('pylibvw', sources=['python/pylibvw.cc'])
+pylibvw = Extension('pylibvw', sources=['python/pylibvw.cc'],
+            runtime_library_dirs=[
+                '/usr/local/lib',
+                '/usr/lib',
+                '/usr/local/lib64',
+                '/usr/lib64',
+            ])
 
 
 def find_boost():
